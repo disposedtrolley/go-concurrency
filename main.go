@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	demos.RaceCondition()
+	demos.Atomicity()
 }
