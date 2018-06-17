@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	demos.Deadlock()
+	demos.Livelock()
 }
