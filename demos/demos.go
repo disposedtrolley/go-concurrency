@@ -2,6 +2,7 @@ package demos
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -42,4 +43,25 @@ func Atomicity() {
 		data++
 	}
 
+}
+
+// MemorySynchronisation demonstrates one method to control access
+// to a critical piece of memory.
+func MemorySynchronisation() {
+	var memoryAccess sync.Mutex
+	var value int
+
+	go func() {
+		memoryAccess.Lock()
+		value++
+		memoryAccess.Unlock()
+	}()
+
+	memoryAccess.Lock()
+	if value == 0 {
+		fmt.Printf("the value is %v.\n", value)
+	} else {
+		fmt.Printf("the value is %v.\n", value)
+	}
+	memoryAccess.Unlock()
 }

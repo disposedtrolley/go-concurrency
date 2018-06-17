@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	demos.Atomicity()
+	demos.MemorySynchronisation()
 }
